@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-surface-secondary text-gray-900 font-sans antialiased;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-card border border-gray-100 shadow-card;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600
+           active:bg-brand-700 text-white font-medium py-3 px-6 rounded-btn text-sm
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent
+           hover:bg-surface-tertiary text-gray-600 font-medium py-2.5 px-4
+           rounded-btn text-sm transition-colors;
+  }
+  .input {
+    @apply w-full border border-gray-200 rounded-btn px-4 py-2.5 text-sm bg-white
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           transition-shadow placeholder:text-gray-400;
+  }
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2;
+  }
+  /* Narrow pages — forms, lists */
+  .page-container {
+    @apply max-w-2xl mx-auto px-4 pt-6 pb-28 md:pb-10 md:pt-8 md:px-6 space-y-5;
+  }
+  /* Wide pages — dashboard, insights, profile */
+  .page-container-wide {
+    @apply w-full max-w-6xl mx-auto px-4 pt-6 pb-28 md:pb-24 md:pt-8 md:px-8 xl:px-10 space-y-6;
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* ── Anxiety range slider ────────────────────────────────────────────────── */
+.anxiety-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #22c55e, #fbbf24, #ef4444);
+  outline: none;
+  cursor: pointer;
+}
+
+.anxiety-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--thumb-color, #218c74);
+  border: 3px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.anxiety-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.anxiety-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--thumb-color, #218c74);
+  border: 3px solid white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
